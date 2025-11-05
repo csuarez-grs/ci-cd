@@ -23,14 +23,15 @@ jobs:
         uses: actions/checkout@v2
 
       # Step 2: Set up Node.js environment
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Use Node 20 LTS
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: 'LTS'
+          cache: 'npm'
 
       # Step 3: Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       # Step 4: Run tests
       - name: Run tests
